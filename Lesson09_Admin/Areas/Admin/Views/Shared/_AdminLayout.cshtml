@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="vi">
+<!--begin::Head-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Trang Quản Trị | AdminLTE - Quản trị</title>
+
+    <!--begin::Theme Init-->
+    <script>
+            (() => {
+                'use strict';
+                const root = document.documentElement;
+                if (root.getAttribute('data-lte-color-mode') === 'off') {
+                    return;
+                }
+                const STORAGE_KEY = 'lte-theme';
+                let stored = null;
+                try {
+                    stored = localStorage.getItem(STORAGE_KEY);
+                } catch { }
+                const authored = root.getAttribute('data-bs-theme');
+                let resolved = 'light';
+                if (stored === 'dark' || stored === 'light') {
+                    resolved = stored;
+                } else if (authored === 'dark' || authored === 'light') {
+                    resolved = authored;
+                } else if (globalThis.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    resolved = 'dark';
+                }
+                root.setAttribute('data-bs-theme', resolved);
+                root.style.colorScheme = resolved;
+                if (resolved !== authored) {
+                    root.setAttribute('data-lte-theme-resolved', '');
+                }
+            })();
+    </script>
+    <!--end::Theme Init-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!--begin::Accessibility Features-->
+    <meta name="supported-color-schemes" content="light dark" />
+    <!-- Đã sửa đường dẫn CSS vào thư mục dist -->
+    <link rel="preload" href="~/dist/css/adminlte.css" as="style" />
+    <!--end::Accessibility Features-->
+    <!--begin::Fonts-->
+    <!-- Đã thêm @@ để fix lỗi CS0103 -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@@fontsource/source-sans-3@5.3.0/index.css"
+          integrity="sha256-5UwXtC6TaPHCAbVQ59waEAqOssHyhn/twyuLRRWszzo="
+          crossorigin="anonymous"
+          media="print"
+          onload="this.media = 'all'" />
+    <!--end::Fonts-->
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/styles/overlayscrollbars.min.css"
+          crossorigin="anonymous" />
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+    <!--begin::Third Party Plugin(Bootstrap Icons)-->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+          crossorigin="anonymous" />
+    <!--end::Third Party Plugin(Bootstrap Icons)-->
+    <!--begin::Required Plugin(AdminLTE)-->
+    <!-- Đã sửa đường dẫn CSS vào thư mục dist -->
+    <link rel="stylesheet" href="~/dist/css/adminlte.css" />
+    <!--end::Required Plugin(AdminLTE)-->
+
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<!-- ÉP GIAO DIỆN SÁNG BẰNG data-bs-theme="light" ĐỂ KHÔNG BỊ ĐEN -->
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary" data-bs-theme="light">
+    <!--begin::App Wrapper-->
+    <div class="app-wrapper">
+        <!--begin::Header-->
+        <nav class="app-header navbar navbar-expand bg-body">
+            <!--begin::Container-->
+            <div class="container-fluid">
+                <!--begin::Start Navbar Links-->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-lte-toggle="sidebar" href="#" role="button">
+                            <i class="bi bi-list"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item d-none d-md-block">
+                        <a href="/Admin/Dashboard/Index" class="nav-link">Home</a>
+                    </li>
+                </ul>
+                <!--end::Start Navbar Links-->
+                <!--begin::End Navbar Links-->
+                <ul class="navbar-nav ms-auto">
+                    <!--begin::Fullscreen Toggle-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+                            <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i>
+                            <i data-lte-icon="minimize" class="bi bi-fullscreen-exit d-none"></i>
+                        </a>
+                    </li>
+                    <!--end::Fullscreen Toggle-->
+                    <!--begin::User Menu Dropdown-->
+                    <li class="nav-item dropdown user-menu">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <!-- Đã sửa đường dẫn Ảnh vào thư mục dist -->
+                            <img src="~/dist/assets/img/user2-160x160.jpg" class="user-image rounded-circle shadow" alt="User Image" />
+                            <span class="d-none d-xl-inline">Admin User</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                            <li class="user-header text-bg-primary">
+                                <!-- Đã sửa đường dẫn Ảnh vào thư mục dist -->
+                                <img src="~/dist/assets/img/user2-160x160.jpg" class="rounded-circle shadow" alt="User Image" />
+                                <p>
+                                    Admin User - Quản trị viên
+                                </p>
+                            </li>
+                            <li class="user-footer">
+                                <a href="#" class="btn btn-outline-secondary">Hồ sơ</a>
+                                <a href="#" class="btn btn-outline-danger float-end">Đăng xuất</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--end::User Menu Dropdown-->
+                </ul>
+                <!--end::End Navbar Links-->
+            </div>
+            <!--end::Container-->
+        </nav>
+        <!--end::Header-->
+        <!--begin::Sidebar-->
+        <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+            <!--begin::Sidebar Brand-->
+            <div class="sidebar-brand">
+                <a href="#" class="brand-link">
+                    <!-- Đã sửa đường dẫn Ảnh vào thư mục dist -->
+                    <img src="~/dist/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
+                    <span class="brand-text fw-light">Quản Trị Web</span>
+                </a>
+            </div>
+            <!--end::Sidebar Brand-->
+            <!--begin::Sidebar Wrapper-->
+            <div class="sidebar-wrapper">
+                <nav class="mt-2" aria-label="Main navigation">
+                    <!--begin::Sidebar Menu-->
+                    <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
+
+                        <li class="nav-item">
+                            <a href="/Admin/Dashboard/Index" class="nav-link active">
+                                <i class="nav-icon bi bi-speedometer"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-header">QUẢN LÝ DỮ LIỆU</li>
+
+                        <li class="nav-item">
+                            <a href="/Admin/Categories" class="nav-link">
+                                <i class="nav-icon bi bi-tags"></i>
+                                <p>Quản lý Danh mục</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/Admin/Products" class="nav-link">
+                                <i class="nav-icon bi bi-box-seam"></i>
+                                <p>Quản lý Sản phẩm</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/Admin/Banners" class="nav-link">
+                                <i class="nav-icon bi bi-image"></i>
+                                <p>Quản lý Banner</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/Admin/Blogs" class="nav-link">
+                                <i class="nav-icon bi bi-pencil-square"></i>
+                                <p>Quản lý Bài viết (Blog)</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <!--end::Sidebar Menu-->
+                </nav>
+            </div>
+            <!--end::Sidebar Wrapper-->
+        </aside>
+        <!--end::Sidebar-->
+        <!--begin::App Main-->
+        <main class="app-main">
+            <!-- Khu vực này sẽ tự động được điền nội dung từ các View khác -->
+            @RenderBody()
+        </main>
+        <!--end::App Main-->
+        <!--begin::Footer-->
+        <footer class="app-footer">
+            <div class="float-end d-none d-sm-inline">Designed with AdminLTE</div>
+            <strong>
+                Copyright &copy; 2026.
+            </strong>
+            All rights reserved.
+        </footer>
+        <!--end::Footer-->
+    </div>
+    <!--end::App Wrapper-->
+    <!--begin::Script-->
+    <!--begin::Third Party Plugin(OverlayScrollbars)-->
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/browser/overlayscrollbars.browser.es6.min.js" crossorigin="anonymous"></script>
+    <!--end::Third Party Plugin(OverlayScrollbars)-->
+    <!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+    <!-- Đã thêm @@ để fix lỗi CS0103 -->
+    <script src="https://cdn.jsdelivr.net/npm/@@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <!--end::Required Plugin(popperjs for Bootstrap 5)-->
+    <!--begin::Required Plugin(Bootstrap 5)-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <!--end::Required Plugin(Bootstrap 5)-->
+    <!--begin::Required Plugin(AdminLTE)-->
+    <!-- Đã sửa đường dẫn JS vào thư mục dist -->
+    <script src="~/dist/js/adminlte.js"></script>
+    <!--end::Required Plugin(AdminLTE)-->
+    <!--begin::OverlayScrollbars Configure-->
+    <script>
+            const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
+            const Default = {
+                scrollbarTheme: 'os-theme-light',
+                scrollbarAutoHide: 'leave',
+                scrollbarClickScroll: true,
+            };
+            document.addEventListener('DOMContentLoaded', function () {
+                const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+                const isMobile = window.innerWidth <= 992;
+                if (sidebarWrapper && globalThis.OverlayScrollbarsGlobal?.OverlayScrollbars !== undefined && !isMobile) {
+                    OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+                        scrollbars: {
+                            theme: Default.scrollbarTheme,
+                            autoHide: Default.scrollbarAutoHide,
+                            clickScroll: Default.scrollbarClickScroll,
+                        },
+                    });
+                }
+            });
+    </script>
+    <!--end::OverlayScrollbars Configure-->
+    <!-- Render thêm Javascript từ các View con (nếu có) -->
+    @await RenderSectionAsync("Scripts", required: false)
+    <!--end::Script-->
+</body>
+<!--end::Body-->
+</html>

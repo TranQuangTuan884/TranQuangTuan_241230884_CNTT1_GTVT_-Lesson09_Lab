@@ -1,0 +1,14 @@
+PROJECT ADMIN MVC - PHIÊN BẢN HOÀN THIỆN
+
+Yêu cầu: .NET 10 SDK.
+
+Cách chạy:
+1. Giải nén thư mục Lesson09_Admin_Complete.
+2. Mở Lesson09_Lab.csproj bằng Visual Studio 2026 hoặc mở Terminal tại thư mục này.
+3. Chạy: dotnet restore
+4. Chạy: dotnet run
+5. Mở địa chỉ localhost được in trong Terminal, vào /Admin/Dashboard/Index.
+
+Chức năng: Dashboard; CRUD Category, Product, Banner, Blog; validation theo DataAnnotations; quan hệ Product-Category; dữ liệu lưu SQLite trong admin.db (tự tạo khi chạy).
+
+Ghi chú: Dự án giữ lại tài nguyên giao diện AdminLTE từ project gốc. Dự án chưa được build thử trong môi trường tạo file vì môi trường này không có .NET SDK; hãy chạy dotnet restore/build trên máy có .NET 10 SDK.

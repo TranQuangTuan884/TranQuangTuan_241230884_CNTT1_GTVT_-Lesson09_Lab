@@ -1,0 +1,4 @@
+using Microsoft.EntityFrameworkCore;
+using Lesson09_Lab.Areas.Admin.Models;
+namespace Lesson09_Lab.Areas.Admin.Data;
+public class AdminDbContext(DbContextOptions<AdminDbContext> options) : DbContext(options) { public DbSet<Category> Categories => Set<Category>(); public DbSet<Product> Products => Set<Product>(); public DbSet<Banner> Banners => Set<Banner>(); public DbSet<Blog> Blogs => Set<Blog>(); protected override void OnModelCreating(ModelBuilder modelBuilder) { modelBuilder.Entity<Product>().Property(x=>x.Price).HasPrecision(18,2); modelBuilder.Entity<Product>().Property(x=>x.SalePrice).HasPrecision(18,2); modelBuilder.Entity<Product>().HasOne(x=>x.Category).WithMany().HasForeignKey(x=>x.CategoryId).OnDelete(DeleteBehavior.Restrict); } }

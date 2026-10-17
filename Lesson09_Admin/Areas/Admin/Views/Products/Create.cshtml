@@ -1,0 +1,13 @@
+@model Lesson09_Lab.Areas.Admin.Models.Product
+@{ ViewData["Title"] = "Thêm mới Sản phẩm"; Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml"; }
+<section class="content-header"><div class="container-fluid"><h1>Thêm mới Sản phẩm</h1></div></section><section class="content"><div class="container-fluid"><div class="card card-primary card-outline"><div class="card-body"><form asp-action="Create" method="post">@Html.AntiForgeryToken()
+<div class="mb-3"><label asp-for="Name" class="form-label">Tên sản phẩm</label><input asp-for="Name" type="text" class="form-control" /><span asp-validation-for="Name" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="Price" class="form-label">Giá</label><input asp-for="Price" type="number" class="form-control" step="0.01" /><span asp-validation-for="Price" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="SalePrice" class="form-label">Giá khuyến mãi</label><input asp-for="SalePrice" type="number" class="form-control" step="0.01" /><span asp-validation-for="SalePrice" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="Status" class="form-label">Trạng thái</label><input asp-for="Status" type="number" class="form-control" /><span asp-validation-for="Status" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="CategoryId" class="form-label">Danh mục</label><select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select"><option value="">-- Chọn danh mục --</option></select><span asp-validation-for="CategoryId" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="CreatedDate" class="form-label">Ngày tạo</label><input asp-for="CreatedDate" type="date" class="form-control" /><span asp-validation-for="CreatedDate" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="Image" class="form-label">Đường dẫn ảnh</label><input asp-for="Image" type="text" class="form-control" /><span asp-validation-for="Image" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="Description" class="form-label">Mô tả</label><textarea asp-for="Description" class="form-control" rows="3"></textarea><span asp-validation-for="Description" class="text-danger"></span></div>
+<div class="d-flex gap-2"><button type="submit" class="btn btn-primary">Lưu</button><a asp-action="Index" class="btn btn-secondary">Quay lại</a></div></form></div></div></div></section>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

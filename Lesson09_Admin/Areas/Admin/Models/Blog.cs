@@ -1,0 +1,3 @@
+using System.ComponentModel.DataAnnotations;
+namespace Lesson09_Lab.Areas.Admin.Models;
+public class Blog { public int Id {get;set;} [Required, StringLength(100)] public string Name {get;set;} = ""; public int Status {get;set;} = 1; public DateTime CreatedDate {get;set;} = DateTime.Today; [StringLength(100)] public string? Image {get;set;} [StringLength(350)] public string? Description {get;set;} }
